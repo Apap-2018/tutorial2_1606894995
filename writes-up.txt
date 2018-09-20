@@ -1,0 +1,34 @@
+Latihan Project Viral
+1. Ganti baris @RequestMapping(“/viral”) menjadi @RequestMapping(“/viral2jari”)
+	a. Tidak terjadi compile error
+	b. Akan menampilkan whitelabel error page karena halaman yang diakses adalah /viral namun RequestMapping nya /viral2jari
+	c. @RequestMapping berguna untuk menunjukkan routing halaman yang akan diakses pada browser, misalnya jika RequestMapping adalah /viral maka yang akan ditulis di browser adalah localhost:8080/viral
+
+2. Ganti nama method index() menjadi nama method viral()
+	a. Tidak terjadi compile error
+	b. Tidak terjadi apa-apa dan berjalan dengan normal, dikarenakan index() dan viral() hanyalah nama method, yang dijalankan tetap isi method. Yang berpengaruh saat menjalankan localhost:8080/viral hanyalah @RequestMapping-nya
+
+3. Ganti string return type menjadi menjadi return “viral2jari”
+	a. Tidak terjadi compile error
+	b. Terjadi whitelabel error yang menyatakan "Error resolving template "viral2jari", template might not exist or might not be accessible by any of the configured "
+	c. Kegunaan return type adalah me-return nama template yang akan dirender method tsb
+
+
+Latihan Request Parameter
+1.  Mengapa tulisan “In My feeling” pada thymeleaf challenge tidak pernah muncul di browser?
+--> karena dalam dokumentasi thymeleaf sudah dijelaskan bahwa jika terdapat tag yang digunakan dari sana, isi tulisan seperti yang dalam hal ini tulisan "In my feeling" tidak akan muncul.
+
+2.	Ubah nilai anotasi Request Mapping “/challenge” menjadi “/viral/challenge”.
+Deskripsikan hasil pada browser dan kembalikan ke bentuk sebelumnya!
+-->Muncul whitelabel error page yang menjelaskan bahwa halaman tersebut tidak ditemukan karena tiap RequestParam hanya dapat routing langsung ke /challenge atau /viral.
+
+3.	Akses localhost:8080/challenge
+	a. Terdapat whitelabel error page yang menyatakan Required String parameter 'name' is not present
+	b.	Muncul halaman namun karena parameter nama nya tidak dimasukkan, di bagian nama tertulis "null"
+	c.	Muncul halaman namun pada bagian nama tertulis "kiki" karena default value nya adalah "kiki"
+
+
+Latihan Path Variable
+1.	Terdapat Whitelabel error page yang mengatakan bahwa halaman tidak ditemukan, ini disebabkan RequestParamnya haruslah selain ada /challenge, juga harus ada nama apapun misalnya challenge/kiki
+2.	Terdapat whitelabel error page yang menyatakan bahwa mappingnya ambigu antara method challenge dan challengePath
+3.	Halaman muncul dengan parameter nama "kiki"
